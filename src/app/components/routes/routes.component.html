@@ -1,0 +1,49 @@
+<div class="content">
+    <div>
+        <div>
+            <h1>Descubra a melhor rota para você:</h1>
+            <div class="form-tab">
+                <div>
+                    <label for="slt-origin">Origem</label>
+                    <select name="origin" id="slt-origin" (change)="onOriginChange($event)">
+                        <option value="" selected disabled>Selecione</option>
+                        <option *ngFor="let item of origins" [value]="item">{{ item }}</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="slt-destination">Destino</label>
+                    <select name="destination" id="slt-destination" (change)="onDestinationChange($event)">
+                        <option value="" selected disabled>Selecione</option>
+                        <option *ngFor="let item of destinations" [value]="item">{{ item }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <input type="button" value="Pesquisar" class="button-effect" (click)="calculateRoute(selectedOrigin, selectedDestination);">
+
+
+            <h4 *ngIf="calculatedItem?.value !== null">
+              <span><b>Rota:</b> {{ calculatedItem?.path }}</span><br>
+              <span><b>Valor:</b> {{ calculatedItem?.value }}</span>
+            </h4>
+        </div>
+        <div>
+          <h3>Ou adicione um novo destino</h3>
+          <div class="form-tab">
+              <div>
+                  <label for="ipt-origin">Digite a origem</label>
+                  <input type="text" id="ipt-origin" placeholder="Origem" [(ngModel)]="newRoute.origin">
+              </div>
+              <div>
+                  <label for="ipt-destination">Digite o destino</label>
+                  <input type="text" id="ipt-destination" placeholder="Destino" [(ngModel)]="newRoute.destination">
+              </div>
+              <div>
+                  <label for="ipt-value">Valor</label>
+                  <input type="number" id="ipt-value" placeholder="Valor" min="0" [(ngModel)]="newRoute.value">
+              </div>
+          </div>
+          <input type="button" value="Adicionar" class="button-effect" (click)="addNewItem()">
+          <p>Caso já exista esta rota, ela será atualizada!</p>
+      </div>
+    </div>

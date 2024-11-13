@@ -1,0 +1,91 @@
+$dark-blue: rgb(0, 48, 91);
+$light-blue: rgb(35, 68, 130);
+$light-bg: rgb(245, 245, 245);
+$white: white;
+
+h1,
+h3 {
+    text-align: center;
+    color: $white;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 100vw;
+    min-height: 100vh;
+
+    > div {
+        background-color: $light-blue;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        color: $white;
+
+        font-family: 'roboto';
+
+        .form-tab {
+            display: flex;
+            flex-wrap: wrap;  // Permite a quebra de linha para ajustar os itens quando necessário
+            gap: 20px;        // Espaço entre os itens
+
+            div {
+                flex: 1 1 100px;  // Cada div dentro de .form-tab ocupará no mínimo 200px
+                display: flex;
+                flex-direction: column;  // Os labels e inputs ficarão empilhados verticalmente
+                gap: 8px;  // Espaçamento entre o label e o input
+            }
+
+            input {
+                width: calc(100% - 22px);
+            }
+        }
+
+
+        select,
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: $light-bg;
+        }
+
+
+        label {
+            font-size: 16px;
+            margin-top: 10px;
+            display: block;
+            color: $white;
+        }
+
+        p {
+            margin: 0;
+            font-size: 10pt;
+            text-align: center;
+        }
+    }
+
+    .button-effect {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #363636;
+      background-color: #757575;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.1s ease, background-color 0.1s ease;
+
+      &:active {
+        transform: scale(0.95); // Reduz o botão ligeiramente para parecer pressionado
+        background-color: #0056b3;
+        color: #fff; // Escurece a cor do botão ao clicar
+      }
+    }
+}
